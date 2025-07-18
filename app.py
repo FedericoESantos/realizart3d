@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from flask_mail import Mail, Message
 from datetime import timedelta
 
-app = Flask(__name__)
+app = Flask(__name__) 
 load_dotenv()
 
 # ------------------- CONFIGURACIÓN GENERAL -------------------

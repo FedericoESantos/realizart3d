@@ -308,7 +308,117 @@ header nav ul li a:hover {
   gap: 15px;
   flex-wrap: wrap;
 }
+.card-container .cards3 a {
+  text-decoration: none;
+  color: #11154e;
+}
+/* ------------------- IMAGENES DE FONDO DE LAS CARDS ANIMADAS ----------------- */
+.card-container .cards3 a .box1 {
+  background-image: url('/static/img/card-anim/muñecos.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box2 {
+  background-image: url('/static/img/card-anim/mascaras.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box3 {
+  background-image: url('/static/img/card-anim/mates.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box4 {
+  background-image: url('/static/img/card-anim/llaveros.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box5 {
+  background-image: url('/static/img/card-anim/auriculares.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box6 {
+  background-image: url('/static/img/card-anim/lamparas.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box7 {
+  background-image: url('/static/img/card-anim/juguetes.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box8 {
+  background-image: url('/static/img/card-anim/repisas.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card-container .cards3 a .box9 {
+  background-image: url('/static/img/card-anim/inteligente.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 
+
+.card-container .cards3 .card2 {
+  width: 250px;
+  height: 180px;
+  padding: 20px;
+  background-color: #b2c2d4;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-container .cards3 .card2:hover {
+  box-shadow: 2px 2px 8px black;
+}
+.card-container .cards3 .card2 img {
+  width: 40px;
+}
+
+.card-container .cards3 .card2 img, .card2 h4 {
+  position: relative;
+  z-index: 1;
+}
+.card-container .cards3 .card2 h4 {
+  margin-top: 10px;
+  color:rgb(255, 255, 255);
+  text-shadow: 2px 2px 4px black;
+  font-family: 'tipo-cardAn2';
+}
+.card-container .cards3 .card2:hover h4 {
+  color: rgb(166, 171, 216);
+  text-shadow: 2px 2px 6px black;
+  font-family: 'tipo-cardAn1';
+}
+.card-container .cards3 .card2:hover h4, .card2:hover img {
+  transform: translateY(-15px);
+}
+.card-container .cards3 .card2 .back-hover {
+  width: 200px;
+  height: 200px;
+  background-color: #11154e69;
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  border-radius: 100%;
+  transition: all 300ms;
+}
+.card-container .cards3 .card2:hover .back-hover {
+  width: 400px;
+  height: 400px;
+  top: -70px;
+  left: -70px;
+}
 
 /* ------------------ PROXIMAMENTE  ------------------------------- */
 .info-index .proximamente {
