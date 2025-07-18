@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, session, url_for, flash, make_response, redirect
 import os
-import mercadopago
 from dotenv import load_dotenv
 from flask_mail import Mail, Message
 from datetime import timedelta
