@@ -107,6 +107,21 @@
 
     </footer>
 
+    <script>
+        function actualizarHora() {
+            const ahora = new Date();
+            const opciones = {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'America/Argentina/Buenos_Aires'
+            };
+            const hora = ahora.toLocaleTimeString('es-AR', opciones);
+            document.getElementById('hora-actual').textContent = hora;
+        }
+        setInterval(actualizarHora, 1000);
+        window.addEventListener('DOMContentLoaded', actualizarHora);
+    </script>
 
 
 </body>

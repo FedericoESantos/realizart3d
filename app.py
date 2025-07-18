@@ -8,6 +8,12 @@ from utils import leer_visitas, guardar_visitas
 app = Flask(__name__)
 load_dotenv()
 
+# ----------------------------- CONFIGURACION PARA VISITAS ---------------------------------------
+VISITAS = 'visitas.txt'
+# Asegurarse que el archivo exista
+if not os.path.exists(VISITAS):
+    with open(VISITAS, 'w') as f:
+        f.write("0\n") 
 
 app.secret_key = os.getenv('SESSIONS') #password para sessiones
 
@@ -27,18 +33,6 @@ app.config['MAIL_PASSWORD'] = PASSWORD
 
 mail = Mail(app)
 
-# --------------------- CONFIGURACION PARA LAS SESIONES POR VISITAS ---------------------------
-@app.before_request
-def contar_visita():
-    if 'visitado' not in session:
-        session['visitado'] = True
-        visitas = leer_visitas()
-        visitas += 1
-        guardar_visitas(visitas)
-
-def obtener_visitas():
-    return leer_visitas()
-
 # --------------------- PAGINA DE ERROR ---------------------------
 @app.errorhandler(404)
 def pagina_No_Encontrada(error):
@@ -48,31 +42,39 @@ def pagina_No_Encontrada(error):
 # ----------------- PAGINAS --------------------
 @app.route("/")
 def inicio():
-    if 'visitado' not in session:
-        session['visitado'] = True
-        visitas = leer_visitas()
-        visitas += 1
-        guardar_visitas(visitas)
-    else:
-        visitas = leer_visitas()
-    return render_template('paginas/index.html', title=titulo, visitas=obtener_visitas())
+    ip = request.remote_addr
+
+    with open(VISITAS, 'r') as f:
+        lines = f.readlines()
+
+    total_visitas = int(lines[0].strip())
+    ips = set(line.strip() for line in lines[1:])
+
+    if ip not in ips:
+        total_visitas += 1
+        with open(VISITAS, 'a') as f:
+            f.write(f"{ip}\n")
+        with open(VISITAS, 'r+') as f:
+            f.seek(0)
+            f.write(f"{total_visitas}\n")  # Actualiza la línea 0
+    return render_template('paginas/index.html', title=titulo, visitas = total_visitas, ip=ip)
 
 @app.route("/empresa")
 def empresa():
-    return render_template('paginas/empresa.html', title=titulo, visitas=obtener_visitas())
+    return render_template('paginas/empresa.html', title=titulo)
 
 @app.route("/multimedia")
 def multimedia():
-    return render_template('paginas/multimedia.html', title=titulo, visitas=obtener_visitas())
+    return render_template('paginas/multimedia.html', title=titulo)
 
 @app.route("/contacto")
 def contacto():
-    return render_template('paginas/contacto.html', title=titulo, visitas=obtener_visitas())
+    return render_template('paginas/contacto.html', title=titulo)
 
 # ----------------- PAGINA DE PRODUCTOS --------------------
 @app.route("/productos")
 def productos():
-    return render_template('paginas/productos.html', title=titulo, visitas=obtener_visitas())
+    return render_template('paginas/productos.html', title=titulo)
 
 # ----------------- ENVIAR MAIL --------------------
 @app.route('/enviar_mail', methods=['POST'])
@@ -99,9 +101,9 @@ def enviar_mail():
 
     return redirect(url_for('contacto'))
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
+
+# if __name__ == '__main__':
+#     port = int(os.environ.get('PORT', 5000))
+#     app.run(host='0.0.0.0', port=port)

@@ -316,32 +316,23 @@ header nav ul li a:hover {
   color: inherit;
 }
 
-.card-container .cards3 .card2,
-.card3,
-.card4,
-.card5,
-.card6,
-.card7,
-.card8,
-.card9,
-.card10 {
+.card-container .cards3 a > div {
   display: flex;
   width: 100%;
-  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 180px;
+  height: 260px;
   border-style: groove;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 2px 2px 8px black;
   text-align: center;
   background-color: #5874a877;
   cursor: pointer;
 }
 
-.card2::before {
+.card-container .cards3 .card2::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -353,7 +344,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card3::before {
+.card-container .cards3 .card3::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -365,7 +356,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card4::before {
+.card-container .cards3 .card4::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -377,7 +368,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card5::before {
+.card-container .cards3 .card5::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -389,7 +380,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card6::before {
+.card-container .cards3 .card6::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -401,7 +392,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card7::before {
+.card-container .cards3 .card7::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -413,7 +404,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card8::before {
+.card-container .cards3 .card8::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -425,7 +416,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card9::before {
+.card-container .cards3 .card9::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -437,7 +428,7 @@ header nav ul li a:hover {
   z-index: 1;
 }
 
-.card10::before {
+.card-container .cards3 .card10::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -450,89 +441,89 @@ header nav ul li a:hover {
 }
 
 .card-container .cards3 .card2 img,
-.card3 img,
-.card4 img,
-.card5 img,
-.card6 img,
-.card7 img,
-.card8 img,
-.card9 img,
-.card10 img {
+.card-container .cards3 .card3 img,
+.card-container .cards3 .card4 img,
+.card-container .cards3 .card5 img,
+.card-container .cards3 .card6 img,
+.card-container .cards3 .card7 img,
+.card-container .cards3 .card8 img,
+.card-container .cards3 .card9 img,
+.card-container .cards3 .card10 img {
   width: 50px;
   filter: drop-shadow(2px 2px 8px rgb(240, 237, 223));
 }
 
 .card-container .cards3 .card2 h4,
-.card2 img, 
-.card3 h4,
-.card3 img,
-.card4 h4,
-.card4 img,
-.card5 h4,
-.card5 img,
-.card6 h4,
-.card6 img, 
-.card7 h4,
-.card7 img,
-.card8 h4,
-.card8 img,
-.card9 h4,
-.card9 img,
-.card10 h4,
-.card10 img {
+.card-container .cards3 .card2 img, 
+.card-container .cards3 .card3 h4,
+.card-container .cards3 .card3 img,
+.card-container .cards3 .card4 h4,
+.card-container .cards3 .card4 img,
+.card-container .cards3 .card5 h4,
+.card-container .cards3 .card5 img,
+.card-container .cards3 .card6 h4,
+.card-container .cards3 .card6 img, 
+.card-container .cards3 .card7 h4,
+.card-container .cards3 .card7 img,
+.card-container .cards3 .card8 h4,
+.card-container .cards3 .card8 img,
+.card-container .cards3 .card9 h4,
+.card-container .cards3 .card9 img,
+.card-container .cards3 .card10 h4,
+.card-container .cards3 .card10 img {
   position: relative;
   z-index: 1;
 }
 
 .card-container .cards3 .card2 h4,
-.card3 h4,
-.card4 h4,
-.card5 h4,
-.card6 h4,
-.card7 h4,
-.card8 h4,
-.card9 h4,
-.card10 h4 {
+.card-container .cards3 .card3 h4,
+.card-container .cards3 .card4 h4,
+.card-container .cards3 .card5 h4,
+.card-container .cards3 .card6 h4,
+.card-container .cards3 .card7 h4,
+.card-container .cards3 .card8 h4,
+.card-container .cards3 .card9 h4,
+.card-container .cards3 .card10 h4 {
   font-size: 19px;
   font-family: 'tipo-cardAn2';
 }
 
 .card-container .cards3 .card2:hover h4,
-.card3:hover h4,
-.card4:hover h4,
-.card5:hover h4,
-.card6:hover h4,
-.card7:hover h4,
-.card8:hover h4,
-.card9:hover h4,
-.card10:hover h4 {
+.card-container .cards3 .card3:hover h4,
+.card-container .cards3 .card4:hover h4,
+.card-container .cards3 .card5:hover h4,
+.card-container .cards3 .card6:hover h4,
+.card-container .cards3 .card7:hover h4,
+.card-container .cards3 .card8:hover h4,
+.card-container .cards3 .card9:hover h4,
+.card-container .cards3 .card10:hover h4 {
   transition: all 300ms;
   font-size: 21px;
   font-family: 'tipo-cardAn1';
 }
 
 .card-container .cards3 .card2:hover img,
-.card3:hover img,
-.card4:hover img,
-.card5:hover img,
-.card6:hover img,
-.card7:hover img,
-.card8:hover img,
-.card9:hover img,
-.card10:hover img {
+.card-container .cards3 .card3:hover img,
+.card-container .cards3 .card4:hover img,
+.card-container .cards3 .card5:hover img,
+.card-container .cards3 .card6:hover img,
+.card-container .cards3 .card7:hover img,
+.card-container .cards3 .card8:hover img,
+.card-container .cards3 .card9:hover img,
+.card-container .cards3 .card10:hover img {
   transition: all 300ms;
   opacity: 0;
 }
 
 .card-container .cards3 .card2 .back-hover,
-                        .card3 .back-hover,
-                        .card4 .back-hover,
-                        .card5 .back-hover,
-                        .card6 .back-hover,
-                        .card7 .back-hover,
-                        .card8 .back-hover,
-                        .card9 .back-hover,
-                        .card10 .back-hover 
+.card-container .cards3 .card3 .back-hover,
+.card-container .cards3 .card4 .back-hover,
+.card-container .cards3 .card5 .back-hover,
+.card-container .cards3 .card6 .back-hover,
+.card-container .cards3  .card7 .back-hover,
+.card-container .cards3  .card8 .back-hover,
+.card-container .cards3 .card9 .back-hover,
+.card-container .cards3 .card10 .back-hover 
 {
   width: 300px;
   height: 300px;
@@ -544,14 +535,14 @@ header nav ul li a:hover {
 }
 
 .card-container .cards3 .card2:hover .back-hover,
-                        .card3:hover .back-hover,
-                        .card4:hover .back-hover,
-                        .card5:hover .back-hover,
-                        .card6:hover .back-hover,
-                        .card7:hover .back-hover,
-                        .card8:hover .back-hover,
-                        .card9:hover .back-hover,
-                        .card10:hover .back-hover                  
+.card-container .cards3 .card3:hover .back-hover,
+.card-container .cards3 .card4:hover .back-hover,
+.card-container .cards3 .card5:hover .back-hover,
+.card-container .cards3 .card6:hover .back-hover,
+.card-container .cards3 .card7:hover .back-hover,
+.card-container .cards3 .card8:hover .back-hover,
+.card-container .cards3 .card9:hover .back-hover,
+.card-container .cards3 .card10:hover .back-hover                  
 {
   width: 650px;
   height: 650px;
