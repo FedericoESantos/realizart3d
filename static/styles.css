@@ -1,0 +1,968 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+@font-face {
+  font-family: 'tipo-cardAn1';
+  src: url('/static/tipo/Orbitron-Bold.ttf');
+}
+@font-face {
+  font-family: 'tipo-cardAn2';
+  src: url('/static/tipo/Fugaz.ttf');
+}
+
+h1,
+h3,
+h4 {
+  padding-left: 20px;
+}
+
+.error {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+}
+.error img {
+  width: 180px;
+}
+.error h1 {
+  color: #11154e;
+  text-shadow: 2px 2px 6px rgb(243, 226, 190);
+}
+.error div {
+  padding: 30px;
+}
+.error a {
+  text-decoration: none;
+  color: #11154e;
+}
+.error a:hover {
+  color: rgb(20, 68, 131);
+  text-decoration: underline;
+  text-underline-offset: 2px; 
+}
+.error div strong {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error div strong p{
+  width: 56%;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+html,
+body {
+  width: 100%;
+  background-color: rgb(198, 202, 206);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 10px 0 10px;
+  flex-wrap: wrap;
+}
+.barra img{
+  width: 60px;
+}
+
+.barra span {
+  display: flex;
+  gap: 10px;
+}
+
+header {
+  background: linear-gradient(to bottom, #222, #000);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: #fff;
+  box-shadow: 0 2px 10px #000;
+  position: relative; /* necesario para que z-index funcione */
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: orange;
+  text-shadow: 2px 2px 4px #000;
+}
+header .logo img {
+  width: 160px;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  justify-content: center;
+}
+
+header nav ul li {
+  position: relative;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #ddd;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+header nav ul li a:hover {
+  background: #333;
+  border-radius: 4px;
+}
+
+.submenu {
+  position: absolute;
+  min-width: 160px;
+  white-space: nowrap;
+  top: 40px;
+  left: 0;
+  background: #111;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #333;
+  z-index: 9999;
+}
+
+.submenu li {
+  margin-bottom: 10px;
+}
+
+.submenu li a {
+  color: #ccc;
+}
+
+.submenu li a:hover {
+  color: #fff;
+}
+
+.dropdown:hover .submenu {
+  display: flex;
+}
+
+/* ------------------ CARRUSEL  ------------------------------- */
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #111;
+  padding-bottom: 40px;
+}
+
+.carrusel-inner {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.carrusel-inner img {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.puntos {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  background: #222;
+  padding: 8px 0;
+}
+
+.puntos span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #555;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.puntos span.activo {
+  background: #eee;
+}
+
+/* ------------------ TITULO INFO INDEX  ------------------------------- */
+.titulo-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ------------------ INFO INDEX  ------------------------------- */
+.info-index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: #eee9e9;
+  box-shadow: 2px 2px 6px black;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  margin: 15px;
+  box-shadow: 2px 2px 8px black;
+  gap: 10px;
+}
+
+.card-container hr {
+  width: 95%;
+  border: 1px solid #ccc;
+}
+
+.card-container .cards2 {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+}
+
+.card-container .cards1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+}
+
+.card-container .cards1 h2 {
+  color: #222;
+  text-shadow: 2px 2px 8px rgb(87, 84, 84);
+}
+
+.card-container .cards2 .card {
+  display: flex;
+  padding: 20px;
+  gap: 15px;
+}
+
+.card-container .cards2 .card img {
+  width: 220px;
+  height: 180px;
+  border-radius: 15%;
+  filter: drop-shadow(2px 2px 8px black);
+}
+
+.card-container .cards2 .card .card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+.card-container .cards2 .card .card-info a{
+  text-decoration: none;
+  color: rgb(16, 41, 73);
+}
+.card-container .cards2 .card .card-info a:hover {
+  color: rgb(44, 102, 179);
+  text-decoration: underline;
+  text-underline-offset: 2px; 
+}
+.dropdown {
+  padding-bottom: 40px; /* aumenta el área de hover sin afectar diseño */
+}
+/* ------------------ EFECTO CARDS  ------------------------------- */
+.card-container .cards3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.card-container .cards3 a {
+   display: block;
+  width: 31%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-container .cards3 .card2,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7,
+.card8,
+.card9,
+.card10 {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  border-style: groove;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 8px black;
+  text-align: center;
+  background-color: #5874a877;
+  cursor: pointer;
+}
+
+.card2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/muñecos.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/mascaras.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/mates.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/lamparas.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card6::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/llaveros.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card7::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/auriculares.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card8::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/inteligente.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card9::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/repisas.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card10::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/img/card-anim/juguetes.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; 
+  z-index: 1;
+}
+
+.card-container .cards3 .card2 img,
+.card3 img,
+.card4 img,
+.card5 img,
+.card6 img,
+.card7 img,
+.card8 img,
+.card9 img,
+.card10 img {
+  width: 50px;
+  filter: drop-shadow(2px 2px 8px rgb(240, 237, 223));
+}
+
+.card-container .cards3 .card2 h4,
+.card2 img, 
+.card3 h4,
+.card3 img,
+.card4 h4,
+.card4 img,
+.card5 h4,
+.card5 img,
+.card6 h4,
+.card6 img, 
+.card7 h4,
+.card7 img,
+.card8 h4,
+.card8 img,
+.card9 h4,
+.card9 img,
+.card10 h4,
+.card10 img {
+  position: relative;
+  z-index: 1;
+}
+
+.card-container .cards3 .card2 h4,
+.card3 h4,
+.card4 h4,
+.card5 h4,
+.card6 h4,
+.card7 h4,
+.card8 h4,
+.card9 h4,
+.card10 h4 {
+  font-size: 19px;
+  font-family: 'tipo-cardAn2';
+}
+
+.card-container .cards3 .card2:hover h4,
+.card3:hover h4,
+.card4:hover h4,
+.card5:hover h4,
+.card6:hover h4,
+.card7:hover h4,
+.card8:hover h4,
+.card9:hover h4,
+.card10:hover h4 {
+  transition: all 300ms;
+  font-size: 21px;
+  font-family: 'tipo-cardAn1';
+}
+
+.card-container .cards3 .card2:hover img,
+.card3:hover img,
+.card4:hover img,
+.card5:hover img,
+.card6:hover img,
+.card7:hover img,
+.card8:hover img,
+.card9:hover img,
+.card10:hover img {
+  transition: all 300ms;
+  opacity: 0;
+}
+
+.card-container .cards3 .card2 .back-hover,
+                        .card3 .back-hover,
+                        .card4 .back-hover,
+                        .card5 .back-hover,
+                        .card6 .back-hover,
+                        .card7 .back-hover,
+                        .card8 .back-hover,
+                        .card9 .back-hover,
+                        .card10 .back-hover 
+{
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  bottom: -240px;
+  background-color: #5874a8c0;
+  border-radius: 100%;
+  transition: all 300ms;
+}
+
+.card-container .cards3 .card2:hover .back-hover,
+                        .card3:hover .back-hover,
+                        .card4:hover .back-hover,
+                        .card5:hover .back-hover,
+                        .card6:hover .back-hover,
+                        .card7:hover .back-hover,
+                        .card8:hover .back-hover,
+                        .card9:hover .back-hover,
+                        .card10:hover .back-hover                  
+{
+  width: 650px;
+  height: 650px;
+  bottom: -65px;
+}
+
+.info-index .proximamente {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 30px;
+  text-align: center;
+}
+.info-index .proximamente img {
+  width: 45px;
+}
+
+/* ------------------ FOOTER  ------------------------------- */
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #222;
+  gap: 15px;
+  box-shadow: 2px 2px 4px black;
+}
+footer .grid {
+  display: flex;
+}
+footer .grid .footer-cont {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+  background-color: #333;
+}
+footer .grid .footer-cont h2 {
+  padding-top: 5px;
+  font-family: 'tipo-cardAn1' ;
+  color: #eee9e9;
+}
+footer .grid .footer-cont div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+footer .grid .footer-cont div ul {
+  list-style:square ;
+}
+footer .grid .footer-cont div ul li a {
+  text-decoration: none;
+  color: whitesmoke;
+  text-shadow: 2px 2px 4px black;
+}
+footer .grid .footer-cont div ul li a:hover {
+  color: rgb(191, 203, 219);
+  text-decoration: underline;
+  text-underline-offset: 2px; 
+}
+footer .grid .footer-cont span {
+  display: flex;
+  flex-direction: ro1w;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: whitesmoke;
+  text-shadow: 2px 2px 4px black;
+}
+footer .grid .footer-cont span img {
+  width: 30px;
+}
+footer .grid .footer-cont span img:hover {
+  filter: drop-shadow(2px 2px 8px rgb(190, 187, 187));
+}
+
+footer .registrados {
+  display: flex;
+  padding: 5px;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
+}
+
+
+/* ------------------ CONTENEDOR PAGINAS  ------------------------------- */
+.container-paginas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  box-shadow: 2px 2px8px black;
+}
+
+/* ------------------------------------------------- */
+/* ------------------ CONTACTO  -------------------- */
+/* ------------------------------------------------- */
+.formulario-mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  padding: 30px;
+  box-shadow: 2px 2px 12px black;
+}
+.formulario-mail span {
+  width: 50%;
+}
+.formulario-mail  img {
+  width: 120px;
+}
+.formulario-mail form{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.formulario-mail form input {
+  margin-bottom: 15px;
+}
+.formulario-mail form textarea {
+  resize: none;
+}
+
+/* ----------------------- Para los mensajes Flash de enviar o error ----------------- */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 90%;
+  text-align: center;
+}
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* ------------------------------------------------- */
+/* ------------------ EMPRESA  -------------------- */
+/* ------------------------------------------------- */
+.empresa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 95%;
+  height: auto;
+  margin: 20px;
+  box-shadow: 2px 2px 8px black;
+}
+.empresa .empresa-titulo {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background-color: #11154e;
+  color: #ddd;
+  text-align: left;
+}
+.empresa .empresa-titulo h3 {
+  padding-top: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px 6px rgb(65, 61, 61);
+}
+.empresa span {
+  padding: 10px;
+}
+.empresa span a {
+  text-decoration: none;
+  color: rgb(16, 44, 87);
+  text-shadow: 2px 2px 5px rgb(190, 180, 180);
+}
+.empresa span a:hover {
+  color: rgb(26, 78, 156);
+  text-decoration: underline;
+  text-underline-offset: 2px; 
+}
+.empresa .bancarios {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.empresa .bancarios .bancarios-info {
+  display: flex;
+  gap: 50px;
+}
+.empresa .bancarios .bancarios-info p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.empresa .bancarios .bancarios-info p img {
+  margin-right: 10px;
+  width: 40px;
+}
+
+/* ------------------------------------------------- */
+/* -------------- GALERIA / MULTIMEDIA  ------------ */
+/* ------------------------------------------------- */
+.galeria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 95%;
+  height: auto;
+  margin: 20px;
+  box-shadow: 2px 2px 8px black;
+}
+.galeria .galeria-titulo {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background-color: #11154e;
+  color: #ddd;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 20px;
+}
+.galeria .container-galeria {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center  ;
+}
+
+/* ------------------------------------------------- */
+/* -------------------- PRODUCTOS  ----------------- */
+/* ------------------------------------------------- */
+.productos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 95%;
+  height: auto;
+  margin: 20px;
+  box-shadow: 2px 2px 8px black;
+}
+.productos .productos-titulo {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background-color: #11154e;
+  color: #ddd;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 20px;
+}
+.productos .container-productos {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center  ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+  .carrusel {
+    max-height: 120px;
+  }
+
+  .card-container .cards2,
+  .cards2 .card,
+  .card3 .card,
+  .card4 .card,
+  .card5 .card,
+  .card6 .card .card7 .card,
+  .card8 .card,
+  .card9 .card,
+  .card10 .card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .card-container .cards3 .card2,
+  .card3,
+  .card4,
+  .card5,
+  .card6,
+  .card7,
+  .card8,
+  .card9,
+  .card10 {
+    width: 45%;
+    height: 180px;
+    border-style: groove;
+  }
+
+  .card-container .cards3 .card2 h4,
+  .card3 h4,
+  .card4 h4,
+  .card5 h4,
+  .card6 h4,
+  .card7 h4,
+  .card8 h4,
+  .card9 h4,
+  .card10 h4 {
+    font-size: 13px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .card-container .cards3 .card2:hover h4,
+  .card3:hover h4,
+  .card4:hover h4,
+  .card5:hover h4,
+  .card6:hover h4,
+  .card7:hover h4,
+  .card8:hover h4,
+  .card9:hover h4,
+  .card10:hover h4 {
+    transition: all 300ms;
+    font-size: 14px;
+  }
+
+  footer .grid{
+    flex-direction: column;
+  }
+  footer .grid .footer-cont {
+    width: 90%;
+  }
+  .empresa .empresa-titulo {
+    justify-content: center;
+  }
+  .empresa .bancarios .bancarios-info {
+    flex-direction: column;
+  }
+    .productos .productos-titulo {
+      align-items: center;
+    }
+  .productos .productos-titulo h2{
+    font-size: 15px;
+  }
+}

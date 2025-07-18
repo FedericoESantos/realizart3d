@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{title}}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon/impresora-3d.png') }}" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="barra flex">
+        <span>
+            <h4>¡Bienvenidos!</h4>
+            <p>Hora Argentina - Uruguay: <strong><span id="hora-actual"></span></strong></p>
+        </span>
+        <p>Visitas: {{visitas}}</p>
+        <p>Carrito</p>
+    </div>
+    <hr>
+    <header class="flex">
+        <div class="logo">
+            <img src="/static/img/logo.png" alt="logo">
+        </div>
+        <nav>
+            <ul class="flex">
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#">Productos ▼</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('productos') }}#mascaras">Máscaras</a></li>
+                        <li><a href="{{ url_for('productos') }}#bustos">Bustos</a></li>
+                        <li><a href="{{ url_for('productos') }}#llaveros">Llaveros</a></li>
+                        <li><a href="{{ url_for('productos') }}#auriculares">Auriculares</a></li>
+                        <li><a href="{{ url_for('productos') }}#lamparas">Lámparas</a></li>
+                        <li><a href="{{ url_for('productos') }}#mates">Mates</a></li>
+                        <li><a href="{{ url_for('productos') }}#utiles">Útiles</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Información ▼</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('multimedia') }}#fotos">Galería de Fotos</a></li>
+                        <li><a href="{{ url_for('multimedia') }}#videos">Galeria de Videos</a></li>
+                        <li><a href="{{ url_for('empresa') }}#info-util">Información Útil</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('empresa') }}">Empresa</a></li>
+                <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <hr>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+
+        <div class="grid">
+
+            <div class="footer-cont">
+                <h2>Sobre Nosotros</h2>
+                <div>
+                    <ul>
+                        <li><a href="{{ url_for('empresa') }}">Nuestra Empresa</a></li>
+                        <li><a href="{{ url_for('multimedia') }}#fotos">Fotos</a></li>
+                        <li><a href="{{ url_for('multimedia') }}#videos">Videos</a></li>
+                        <li><a href="{{ url_for('empresa') }}#medios-pago">Medios de Pago</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-cont">
+                <h2>Productos Destacados</h2>
+                <div>
+                    <ul>
+                        <li><a href="{{ url_for('productos') }}#mascaras">Máscaras</a></li>
+                        <li><a href="{{ url_for('productos') }}#bustos">Bustos</a></li>
+                        <li><a href="{{ url_for('productos') }}#auriculares">Porta auriculares</a></li>
+                        <li><a href="{{ url_for('productos') }}#llaveros">Llaveros</a></li>
+                        <li><a href="{{ url_for('productos') }}#mates">Lapiceros</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-cont">
+                <h2>Contacto</h2>
+                <span>
+                    <a href="{{url_for('contacto')}}"><img src="/static/img/icon/correo.png" alt="mail"></a>
+                </span>
+
+                <span>
+                    <img src="/static/img/icon/whatsapp.png" alt="whatsapp">
+                    <p>221 304 1421</p>
+                </span>
+            </div>
+
+
+        </div>
+
+        <div class="registrados">
+            <p>© 2025 RealizART 3D - Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+
+
+
+</body>
+
+</html>

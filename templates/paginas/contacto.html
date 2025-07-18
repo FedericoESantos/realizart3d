@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio | {{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="container-paginas">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="formulario-mail">
+        <span>
+            Dejanos Cualquier duda o sugerencia. <br>
+            Tu aporte nos ayuda a mejorar. <br>
+            Tus dudas serán respondidas a la brevedad.
+        </span>
+        <img src="/static/img/mail.contacto.png" alt="mail">
+        <form action="{{ url_for('enviar_mail') }}" method="post">
+            <label for="">Nombre y Apellido: </label>
+            <input type="text" name="nombre" placeholder="Escriba su nombre y apellido">
+
+            <label for="">Email:</label>
+            <input type="email" name="email" placeholder="Escriba su mail">
+
+            <textarea name="mensaje" cols="30" rows="10" placeholder="Escribí tu mensaje acá..."></textarea>
+            <br>
+            <button type="submit">
+                Enviar
+            </button>
+        </form>
+    </div>
+
+</div>
+
+
+
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
+{% endblock content %}

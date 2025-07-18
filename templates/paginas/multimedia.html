@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio | {{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="container-paginas">
+
+    <div class="galeria">
+        <div class="galeria-titulo" id="fotos">
+            <h2>Imágenes</h2>
+        </div>
+
+        <div class="container-multimedia">
+
+        </div>
+
+        <br><br>
+
+        <div class="galeria-titulo" id="videos">
+            <h2>Videos</h2>
+        </div>
+        
+        <div class="container-multimedia">
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
+{% endblock content %}

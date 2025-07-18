@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio | {{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="carrusel">
+    <div class="carrusel-inner">
+        <img src="/static/img/3d1.jpg" alt="Imagen 1">
+        <img src="/static/img/3d2.jpg" alt="Imagen 2">
+        <img src="/static/img/3d3.jpg" alt="Imagen 3">
+        <img src="/static/img/3d4.jpg" alt="Imagen 4">
+        <img src="/static/img/3d5.jpg" alt="Imagen 5">
+        <img src="/static/img/3d6.jpg" alt="Imagen 6">
+    </div>
+    <div class="puntos"></div>
+</div>
+
+<hr>
+<hr>
+<div class="titulo-info">
+    <h3>Nuestros Productos y Servicios</h3>
+</div>
+<hr>
+<hr>
+
+<div class="info-index">
+
+    <div class="card-container">
+
+        <div class="cards1">
+            <img src="/static/img/logo.png" alt="logo">
+            <span>Bienvenidos al rincón donde las ideas cobran vida. Productos para cosplayers, juguetes, decoraciones
+                y herramientas únicas hechas en 3D. Porque si lo podés imaginar… lo podemos crear.
+            </span>
+        </div>
+
+        <hr>
+
+        <div class="cards2">
+
+            <div class="card">
+                <img src="/static/img/prod/llaveros.jpg" alt="llaveros">
+                <div class="card-info">
+                    <span>
+                        <h2>Realizamos llaveros de tus comics favoritos.</h2>
+                        Elije a tus personajes favoritos para que te acompañen a donde vayas. Spiderman, Superman,
+                        Capitan America, Thor, Lilo y Stich, entre muchos.
+                        También hacemos llaveros personalizados.
+                    </span>
+                    <a href="{{ url_for('productos') }}#llaveros">Mis Llaveros</a>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-info">
+                    <span>
+                        <h2>Repisas y herramientas inteligentes.</h2>
+                        Realizamos todo tipo de artículos para el hogar, decoración y herramientas inteligentes. Si se
+                        te ocurre algo en particular no dudes en consultarnos.
+                    </span>
+                    <a href="{{ url_for('productos') }}#utiles">Muebles a tu medida</a>
+                </div>
+                <img src="/static/img/prod/herramientas.jpg" alt="llaveros">
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="cards3">
+
+            <a href="{{ url_for('productos') }}#bustos">
+                <div class="card2">
+                    <img src="/static/img/icon/robot.png" alt="muñeco">
+                    <h4>BUSTOS Y MUÑECOS</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#mascaras">
+                <div class="card3">
+                    <img src="/static/img/icon/mascara.png" alt="mascara">
+                    <h4>MÁSCARAS Y DISFRACES</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#mates">
+                <div class="card4">
+                    <img src="/static/img/icon/mate.png" alt="mates">
+                    <h4>MATES Y LAPICEROS</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#lamparas">
+                <div class="card5">
+                    <img src="/static/img/icon/lampara.png" alt="lamparas">
+                    <h4>LAMPARAS</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#llaveros">
+                <div class="card6">
+                    <img src="/static/img/icon/llavero.png" alt="llaveros">
+                    <h4>LLAVEROS</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#auriculares">
+                <div class="card7">
+                    <img src="/static/img/icon/auriculares.png" alt="auriculares">
+                    <h4>PORTA AURICULARES</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#utiles">
+                <div class="card8">
+                    <img src="/static/img/icon/herramientas.png" alt="herramientas">
+                    <h4>HERRAMIENTAS INTELIGENTES</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#muebles">
+                <div class="card9">
+                    <img src="/static/img/icon/repisas.png" alt="repisas">
+                    <h4>REPISAS</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('productos') }}#juegos">
+                <div class="card10">
+                    <img src="/static/img/icon/dino.png" alt="juegos">
+                    <h4>JUEGOS Y JUGUETES</h4>
+                    <div class="back-hover"></div>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="proximamente">
+        <img src="/static/img/icon/impresora-3d.png" alt="impresora">
+        <h2>Proximamente Archivos STL descargables para imprimir en 3D</h2>
+        <img src="/static/img/icon/impresora-3d.png" alt="impresora">
+    </div>
+
+</div>
+
+<hr>
+
+
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio | {{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="container-paginas">
+    <div class="empresa">
+        <div class="empresa-titulo">
+            <h3>Nuestra Empresa</h3>
+        </div>
+        <span>
+            <strong>¡Bienvenidos a RealizArt 3D!</strong>
+            Somos una empresa especializada en trabajos con impresión 3D. En este fascinante universo creativo
+            encontrarás desde figuras, bustos y muñecos, hasta accesorios para disfraces como máscaras y piezas
+            temáticas.
+            También desarrollamos herramientas y organizadores prácticos para oficina, pensados para ayudarte a mantener
+            el orden y mejorar tu día a día.
+        </span>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="empresa-titulo" id="info-util">
+            <h3>Datos útiles</h3>
+        </div>
+        <span>
+            <strong>¿Ya tenés una impresora 3D y surgió alguna duda?</strong>
+            No dudes en consultarnos desde la sección 👉 <a href="{{url_for('contacto')}}">Contacto</a> <br>
+            Contanos cuál es tu inconveniente y lo resolveremos juntos.
+            También podés enviarnos tus archivos si tenés dudas: estamos para ayudarte. <br>
+            Próximamente lanzaremos una sección exclusiva con archivos listos para descargar e imprimir. ¡Estate atento
+            a las novedades!
+        </span>
+
+        <br>
+        <hr>
+        <br>
+        <div class="empresa-titulo" id="medios-pago">
+            <h3>Medios de Pago</h3>
+        </div>
+        <span class="bancarios">
+            <strong>Datos Bancarios.</strong>
+
+            <div class="bancarios-info">
+                <p>
+                    <img src="/static/img/icon/banco.png" alt="banco">
+                    <strong>Alias:</strong>
+                    FLOR.FINURA.REASUME
+                </p>
+                <p>
+                    <img src="/static/img/icon/banco.png" alt="banco">
+                    <strong>Alias:</strong>
+                    Fede.lp.1979
+                </p>
+            </div>
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
+{% endblock content %}
