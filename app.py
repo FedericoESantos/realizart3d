@@ -1,27 +1,23 @@
-from flask import Flask, render_template, request, session, url_for, flash, make_response, redirect
+from flask import Flask, render_template, request, session, url_for, flash, make_response, redirect, g
 import os
 from dotenv import load_dotenv
 from flask_mail import Mail, Message
 from datetime import timedelta
-from utils import leer_visitas, guardar_visitas
 
 app = Flask(__name__)
 load_dotenv()
 
-# ----------------------------- CONFIGURACION PARA VISITAS ---------------------------------------
+# ------------------- CONFIGURACIÓN GENERAL -------------------
 VISITAS = 'visitas.txt'
-# Asegurarse que el archivo exista
 if not os.path.exists(VISITAS):
     with open(VISITAS, 'w') as f:
-        f.write("0\n") 
+        f.write("0\n")
 
-app.secret_key = os.getenv('SESSIONS') #password para sessiones
-
+app.secret_key = os.getenv('SESSIONS')
 titulo = 'RealizART3D'
+app.permanent_session_lifetime = timedelta(days=365)
 
-app.permanent_session_lifetime = timedelta(days=365) #define cuánto tiempo dura la sesión del usuario
-
-# --------------------- CONFIGURACION PARA USAR EL MAIL ---------------------------
+# ------------------- CONFIGURACIÓN MAIL -------------------
 PASSWORD = os.getenv('GMAIL_APP_PASSWORD')
 MAIL = os.getenv('GMAIL')
 
@@ -29,19 +25,16 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = MAIL
-app.config['MAIL_PASSWORD'] = PASSWORD  
+app.config['MAIL_PASSWORD'] = PASSWORD
 
 mail = Mail(app)
 
-# --------------------- PAGINA DE ERROR ---------------------------
-@app.errorhandler(404)
-def pagina_No_Encontrada(error):
-    return render_template('error.html', error=error, title=titulo), 404
+# ------------------- CONTADOR DE VISITAS -------------------
+@app.before_request
+def contar_visitas():
+    if request.endpoint == 'static':
+        return
 
-
-# ----------------- PAGINAS --------------------
-@app.route("/")
-def inicio():
     ip = request.remote_addr
 
     with open(VISITAS, 'r') as f:
@@ -56,8 +49,20 @@ def inicio():
             f.write(f"{ip}\n")
         with open(VISITAS, 'r+') as f:
             f.seek(0)
-            f.write(f"{total_visitas}\n")  # Actualiza la línea 0
-    return render_template('paginas/index.html', title=titulo, visitas = total_visitas, ip=ip)
+            f.write(f"{total_visitas}\n")
+
+    g.visitas = total_visitas
+    g.ip = ip
+
+# ------------------- CONTEXTO GLOBAL PARA TEMPLATES -------------------
+@app.context_processor
+def inject_visitas():
+    return dict(visitas=getattr(g, 'visitas', 0), ip=getattr(g, 'ip', ''))
+
+# ------------------- PÁGINAS -------------------
+@app.route("/")
+def inicio():
+    return render_template('paginas/index.html', title=titulo)
 
 @app.route("/empresa")
 def empresa():
@@ -71,12 +76,11 @@ def multimedia():
 def contacto():
     return render_template('paginas/contacto.html', title=titulo)
 
-# ----------------- PAGINA DE PRODUCTOS --------------------
 @app.route("/productos")
 def productos():
     return render_template('paginas/productos.html', title=titulo)
 
-# ----------------- ENVIAR MAIL --------------------
+# ------------------- ENVÍO DE MAIL -------------------
 @app.route('/enviar_mail', methods=['POST'])
 def enviar_mail():
     nombre = request.form['nombre']
@@ -93,7 +97,6 @@ def enviar_mail():
         Mensaje: {mensaje}
         '''
         mail.send(msg)
-
         flash(f'¡Gracias {nombre} por su consulta! Te responderemos pronto al mail: {email}', 'success')
     except Exception as e:
         flash('Error al enviar el mensaje. Por favor intentá nuevamente más tarde.', 'error')
@@ -101,9 +104,11 @@ def enviar_mail():
 
     return redirect(url_for('contacto'))
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+# ------------------- ERROR 404 -------------------
+@app.errorhandler(404)
+def pagina_No_Encontrada(error):
+    return render_template('error.html', error=error, title=titulo), 404
 
+# ------------------- RUN APP -------------------
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
