@@ -684,6 +684,8 @@ footer .registrados {
   height: auto;
   margin: 20px;
   box-shadow: 2px 2px 8px black;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .productos .productos-titulo {
   display: flex;
@@ -698,12 +700,32 @@ footer .registrados {
 .productos .container-productos {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  height: auto;
-  padding: 20px;
+  gap: 20px;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.productos .container-productos .card-prod {
+  display: flex;
+  width: 180px;
+  height: auto;
+  justify-content: start;
   align-items: center;
   text-align: center  ;
+  border-style: groove;
+  background-color: whitesmoke;
+  box-shadow: 2px 2px 6px black;
+  justify-items: contain;
+  overflow: hidden;
+  margin: 10px;
+}
+.productos .container-productos .card-prod img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
 }
 
 
