@@ -35,7 +35,8 @@ def contar_visitas():
     if request.endpoint == 'static':
         return
 
-    ip = request.remote_addr
+    ip = request.headers.get('X-Forwarded-For', request.remote_addr).split(',')[0].strip()
+    print(f"IP detectada: {ip}")
 
     with open(VISITAS, 'r') as f:
         lines = f.readlines()
@@ -53,6 +54,7 @@ def contar_visitas():
 
     g.visitas = total_visitas
     g.ip = ip
+
 
 # ------------------- CONTEXTO GLOBAL PARA TEMPLATES -------------------
 @app.context_processor

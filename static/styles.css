@@ -740,7 +740,7 @@ footer .registrados {
   padding: 5px;
 }
 .productos .container-productos .card-prod .card-info h3 {
-  width: 100%;
+  width: 95%;
   text-align: center;
   margin: 0 auto;
   padding: 5px 10px;
@@ -831,5 +831,5 @@ footer .registrados {
   .productos .container-productos .card-prod .card-info {
     padding: 8px;
   }
-  
+
 }
