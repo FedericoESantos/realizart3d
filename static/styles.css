@@ -733,7 +733,7 @@ footer .registrados {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 10px;
+  padding: 10px 12px;
   box-sizing: border-box;
 }
 .productos .container-productos .card-prod .card-info p {
@@ -827,4 +827,9 @@ footer .registrados {
   .productos .productos-titulo h2{
     font-size: 15px;
   }
+
+  .productos .container-productos .card-prod .card-info {
+    padding: 8px;
+  }
+  
 }
